@@ -44,7 +44,8 @@ def generate_proto(source):
   .proto file.  Does nothing if the output already exists and is newer than
   the input."""
 
-  output = source.replace(".proto", "_pb2.py").replace("../src/", "")
+  source = source.replace("../src/", "")
+  output = source.replace(".proto", "_pb2.py")
 
   if (not os.path.exists(output) or
       (os.path.exists(source) and
@@ -61,7 +62,7 @@ def generate_proto(source):
           "or install the binary package.\n")
       sys.exit(-1)
 
-    protoc_command = [ protoc, "-I../src", "-I.", "--python_out=.", source ]
+    protoc_command = [ protoc, "-I.", "--python_out=.", source ]
     if subprocess.call(protoc_command) != 0:
       sys.exit(-1)
 
@@ -106,9 +107,8 @@ class clean(_clean):
     for (dirpath, dirnames, filenames) in os.walk("."):
       for filename in filenames:
         filepath = os.path.join(dirpath, filename)
-        if filepath.endswith("_pb2.py") or filepath.endswith(".pyc") or \
-          filepath.endswith(".so") or filepath.endswith(".o") or \
-          filepath.endswith('google/protobuf/compiler/__init__.py'):
+        if filepath.endswith(".pyc") or \
+          filepath.endswith(".so") or filepath.endswith(".o"):
           os.remove(filepath)
     # _clean is an old-style class, so super() doesn't work.
     _clean.run(self)
