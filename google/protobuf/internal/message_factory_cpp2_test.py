@@ -30,34 +30,27 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-"""Tests for google.protobuf.descriptor_database."""
+"""Tests for google.protobuf.message_factory."""
 
-__author__ = 'matthewtoia@google.com (Matt Toia)'
+import os
+os.environ['PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION'] = 'cpp'
+os.environ['PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION_VERSION'] = '2'
 
+# We must set the implementation version above before the google3 imports.
+# pylint: disable=g-import-not-at-top
 from google.apputils import basetest
-from google.protobuf import descriptor_pb2
-from google.protobuf.internal import factory_test2_pb2
-from google.protobuf import descriptor_database
+from google.protobuf.internal import api_implementation
+# Run all tests from the original module by putting them in our namespace.
+# pylint: disable=wildcard-import
+from google.protobuf.internal.message_factory_test import *
 
 
-class DescriptorDatabaseTest(basetest.TestCase):
+class ConfirmCppApi2Test(basetest.TestCase):
 
-  def testAdd(self):
-    db = descriptor_database.DescriptorDatabase()
-    file_desc_proto = descriptor_pb2.FileDescriptorProto.FromString(
-        factory_test2_pb2.DESCRIPTOR.serialized_pb)
-    db.Add(file_desc_proto)
+  def testImplementationSetting(self):
+    self.assertEqual('cpp', api_implementation.Type())
+    self.assertEqual(2, api_implementation.Version())
 
-    self.assertEquals(file_desc_proto, db.FindFileByName(
-        'google/protobuf/internal/factory_test2.proto'))
-    self.assertEquals(file_desc_proto, db.FindFileContainingSymbol(
-        'google.protobuf.python.internal.Factory2Message'))
-    self.assertEquals(file_desc_proto, db.FindFileContainingSymbol(
-        'google.protobuf.python.internal.Factory2Message.NestedFactory2Message'))
-    self.assertEquals(file_desc_proto, db.FindFileContainingSymbol(
-        'google.protobuf.python.internal.Factory2Enum'))
-    self.assertEquals(file_desc_proto, db.FindFileContainingSymbol(
-        'google.protobuf.python.internal.Factory2Message.NestedFactory2Enum'))
 
 if __name__ == '__main__':
   basetest.main()

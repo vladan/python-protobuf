@@ -28,30 +28,68 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// Author: matthewtoia@google.com (Matt Toia)
+// Author: tibell@google.com (Johan Tibell)
 
+#ifndef GOOGLE_PROTOBUF_PYTHON_CPP_SCOPED_PYOBJECT_PTR_H__
+#define GOOGLE_PROTOBUF_PYTHON_CPP_SCOPED_PYOBJECT_PTR_H__
 
-package google.protobuf.python.internal;
+#include <Python.h>
 
+namespace google {
+class ScopedPyObjectPtr {
+ public:
+  // Constructor.  Defaults to intializing with NULL.
+  // There is no way to create an uninitialized ScopedPyObjectPtr.
+  explicit ScopedPyObjectPtr(PyObject* p = NULL) : ptr_(p) { }
 
-enum Factory1Enum {
-  FACTORY_1_VALUE_0 = 0;
-  FACTORY_1_VALUE_1 = 1;
-}
-
-message Factory1Message {
-  optional Factory1Enum factory_1_enum = 1;
-  enum NestedFactory1Enum {
-    NESTED_FACTORY_1_VALUE_0 = 0;
-    NESTED_FACTORY_1_VALUE_1 = 1;
+  // Destructor.  If there is a PyObject object, delete it.
+  ~ScopedPyObjectPtr() {
+    Py_XDECREF(ptr_);
   }
-  optional NestedFactory1Enum nested_factory_1_enum = 2;
-  message NestedFactory1Message {
-    optional string value = 1;
-  }
-  optional NestedFactory1Message nested_factory_1_message = 3;
-  optional int32 scalar_value = 4;
-  repeated string list_value = 5;
 
-  extensions 1000 to max;
-}
+  // Reset.  Deletes the current owned object, if any.
+  // Then takes ownership of a new object, if given.
+  // this->reset(this->get()) works.
+  PyObject* reset(PyObject* p = NULL) {
+    if (p != ptr_) {
+      Py_XDECREF(ptr_);
+      ptr_ = p;
+    }
+    return ptr_;
+  }
+
+  // Releases ownership of the object.
+  PyObject* release() {
+    PyObject* p = ptr_;
+    ptr_ = NULL;
+    return p;
+  }
+
+  operator PyObject*() { return ptr_; }
+
+  PyObject* operator->() const  {
+    assert(ptr_ != NULL);
+    return ptr_;
+  }
+
+  PyObject* get() const { return ptr_; }
+
+  Py_ssize_t refcnt() const { return Py_REFCNT(ptr_); }
+
+  void inc() const { Py_INCREF(ptr_); }
+
+  // Comparison operators.
+  // These return whether a ScopedPyObjectPtr and a raw pointer
+  // refer to the same object, not just to two different but equal
+  // objects.
+  bool operator==(const PyObject* p) const { return ptr_ == p; }
+  bool operator!=(const PyObject* p) const { return ptr_ != p; }
+
+ private:
+  PyObject* ptr_;
+
+  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(ScopedPyObjectPtr);
+};
+
+}  // namespace google
+#endif  // GOOGLE_PROTOBUF_PYTHON_CPP_SCOPED_PYOBJECT_PTR_H__

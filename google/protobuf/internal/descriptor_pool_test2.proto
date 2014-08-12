@@ -28,30 +28,43 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// Author: matthewtoia@google.com (Matt Toia)
-
-
 package google.protobuf.python.internal;
 
+import "google/protobuf/internal/descriptor_pool_test1.proto";
 
-enum Factory1Enum {
-  FACTORY_1_VALUE_0 = 0;
-  FACTORY_1_VALUE_1 = 1;
+
+message DescriptorPoolTest3 {
+
+  extend DescriptorPoolTest1 {
+    optional DescriptorPoolTest3 descriptor_pool_test = 1001;
+  }
+
+  enum NestedEnum {
+    NU = 13;
+    XI = 14;
+  }
+
+  optional NestedEnum nested_enum = 1 [default = XI];
+
+  message NestedMessage {
+    enum NestedEnum {
+      OMICRON = 15;
+      PI = 16;
+    }
+    optional NestedEnum nested_enum = 1 [default = PI];
+    optional string nested_field = 2 [default = "nu"];
+    optional DeepNestedMessage deep_nested_message = 3;
+
+    message DeepNestedMessage {
+      enum NestedEnum {
+        RHO = 17;
+        SIGMA = 18;
+      }
+      optional NestedEnum nested_enum = 1 [default = RHO];
+      optional string nested_field = 2 [default = "sigma"];
+    }
+  }
+
+  optional NestedMessage nested_message = 2;
 }
 
-message Factory1Message {
-  optional Factory1Enum factory_1_enum = 1;
-  enum NestedFactory1Enum {
-    NESTED_FACTORY_1_VALUE_0 = 0;
-    NESTED_FACTORY_1_VALUE_1 = 1;
-  }
-  optional NestedFactory1Enum nested_factory_1_enum = 2;
-  message NestedFactory1Message {
-    optional string value = 1;
-  }
-  optional NestedFactory1Message nested_factory_1_message = 3;
-  optional int32 scalar_value = 4;
-  repeated string list_value = 5;
-
-  extensions 1000 to max;
-}

@@ -28,30 +28,39 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// Author: matthewtoia@google.com (Matt Toia)
+// Author: tibell@google.com (Johan Tibell)
+//
+// These message definitions are used to exercises known corner cases
+// in the C++ implementation of the Python API.
 
 
 package google.protobuf.python.internal;
 
+// Protos optimized for SPEED use a strict superset of the generated code
+// of equivalent ones optimized for CODE_SIZE, so we should optimize all our
+// tests for speed unless explicitly testing code size optimization.
+option optimize_for = SPEED;
 
-enum Factory1Enum {
-  FACTORY_1_VALUE_0 = 0;
-  FACTORY_1_VALUE_1 = 1;
+message TestAllTypes {
+  message NestedMessage {
+    optional int32 bb = 1;
+    optional ForeignMessage cc = 2;
+  }
+
+  repeated NestedMessage repeated_nested_message = 1;
+  optional NestedMessage optional_nested_message = 2;
+  optional int32 optional_int32 = 3;
 }
 
-message Factory1Message {
-  optional Factory1Enum factory_1_enum = 1;
-  enum NestedFactory1Enum {
-    NESTED_FACTORY_1_VALUE_0 = 0;
-    NESTED_FACTORY_1_VALUE_1 = 1;
-  }
-  optional NestedFactory1Enum nested_factory_1_enum = 2;
-  message NestedFactory1Message {
-    optional string value = 1;
-  }
-  optional NestedFactory1Message nested_factory_1_message = 3;
-  optional int32 scalar_value = 4;
-  repeated string list_value = 5;
+message ForeignMessage {
+  optional int32 c = 1;
+  repeated int32 d = 2;
+}
 
-  extensions 1000 to max;
+message TestAllExtensions {
+  extensions 1 to max;
+}
+
+extend TestAllExtensions {
+  optional TestAllTypes.NestedMessage optional_nested_message_extension = 1;
 }

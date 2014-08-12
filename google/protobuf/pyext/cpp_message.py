@@ -1,5 +1,3 @@
-#! /usr/bin/python
-#
 # Protocol Buffers - Google's data interchange format
 # Copyright 2008 Google Inc.  All rights reserved.
 # http://code.google.com/p/protobuf/
@@ -30,34 +28,34 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-"""Tests for google.protobuf.descriptor_database."""
+"""Protocol message implementation hooks for C++ implementation.
 
-__author__ = 'matthewtoia@google.com (Matt Toia)'
+Contains helper functions used to create protocol message classes from
+Descriptor objects at runtime backed by the protocol buffer C++ API.
+"""
 
-from google.apputils import basetest
-from google.protobuf import descriptor_pb2
-from google.protobuf.internal import factory_test2_pb2
-from google.protobuf import descriptor_database
+__author__ = 'tibell@google.com (Johan Tibell)'
+
+from google.protobuf.pyext import _message
+from google.protobuf import message
 
 
-class DescriptorDatabaseTest(basetest.TestCase):
+def NewMessage(bases, message_descriptor, dictionary):
+  """Creates a new protocol message *class*."""
+  new_bases = []
+  for base in bases:
+    if base is message.Message:
+      # _message.Message must come before message.Message as it
+      # overrides methods in that class.
+      new_bases.append(_message.Message)
+    new_bases.append(base)
+  return tuple(new_bases)
 
-  def testAdd(self):
-    db = descriptor_database.DescriptorDatabase()
-    file_desc_proto = descriptor_pb2.FileDescriptorProto.FromString(
-        factory_test2_pb2.DESCRIPTOR.serialized_pb)
-    db.Add(file_desc_proto)
 
-    self.assertEquals(file_desc_proto, db.FindFileByName(
-        'google/protobuf/internal/factory_test2.proto'))
-    self.assertEquals(file_desc_proto, db.FindFileContainingSymbol(
-        'google.protobuf.python.internal.Factory2Message'))
-    self.assertEquals(file_desc_proto, db.FindFileContainingSymbol(
-        'google.protobuf.python.internal.Factory2Message.NestedFactory2Message'))
-    self.assertEquals(file_desc_proto, db.FindFileContainingSymbol(
-        'google.protobuf.python.internal.Factory2Enum'))
-    self.assertEquals(file_desc_proto, db.FindFileContainingSymbol(
-        'google.protobuf.python.internal.Factory2Message.NestedFactory2Enum'))
+def InitMessage(message_descriptor, cls):
+  """Constructs a new message instance (called before instance's __init__)."""
 
-if __name__ == '__main__':
-  basetest.main()
+  def SubInit(self, **kwargs):
+    super(cls, self).__init__(message_descriptor, **kwargs)
+  cls.__init__ = SubInit
+  cls.AddDescriptors(message_descriptor)

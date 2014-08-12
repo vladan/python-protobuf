@@ -28,30 +28,30 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// Author: matthewtoia@google.com (Matt Toia)
+// Author: qrczak@google.com (Marcin Kowalczyk)
+//
+// This module exposes the C proto inside the given Python proto, in
+// case the Python proto is implemented with a C proto.
 
+#ifndef GOOGLE_PROTOBUF_PYTHON_PYTHON_PROTOBUF_H__
+#define GOOGLE_PROTOBUF_PYTHON_PYTHON_PROTOBUF_H__
 
-package google.protobuf.python.internal;
+#include <Python.h>
 
+namespace google {
+namespace protobuf {
 
-enum Factory1Enum {
-  FACTORY_1_VALUE_0 = 0;
-  FACTORY_1_VALUE_1 = 1;
-}
+class Message;
 
-message Factory1Message {
-  optional Factory1Enum factory_1_enum = 1;
-  enum NestedFactory1Enum {
-    NESTED_FACTORY_1_VALUE_0 = 0;
-    NESTED_FACTORY_1_VALUE_1 = 1;
-  }
-  optional NestedFactory1Enum nested_factory_1_enum = 2;
-  message NestedFactory1Message {
-    optional string value = 1;
-  }
-  optional NestedFactory1Message nested_factory_1_message = 3;
-  optional int32 scalar_value = 4;
-  repeated string list_value = 5;
+namespace python {
 
-  extensions 1000 to max;
-}
+// Return the pointer to the C proto inside the given Python proto,
+// or NULL when this is not a Python proto implemented with a C proto.
+const Message* GetCProtoInsidePyProto(PyObject* msg);
+Message* MutableCProtoInsidePyProto(PyObject* msg);
+
+}  // namespace python
+}  // namespace protobuf
+
+}  // namespace google
+#endif  // GOOGLE_PROTOBUF_PYTHON_PYTHON_PROTOBUF_H__

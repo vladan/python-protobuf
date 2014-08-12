@@ -30,34 +30,39 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-"""Tests for google.protobuf.descriptor_database."""
-
-__author__ = 'matthewtoia@google.com (Matt Toia)'
+"""Tests for google.protobuf.text_encoding."""
 
 from google.apputils import basetest
-from google.protobuf import descriptor_pb2
-from google.protobuf.internal import factory_test2_pb2
-from google.protobuf import descriptor_database
+from google.protobuf import text_encoding
+
+TEST_VALUES = [
+    ("foo\\rbar\\nbaz\\t",
+     "foo\\rbar\\nbaz\\t",
+     b"foo\rbar\nbaz\t"),
+    ("\\'full of \\\"sound\\\" and \\\"fury\\\"\\'",
+     "\\'full of \\\"sound\\\" and \\\"fury\\\"\\'",
+     b"'full of \"sound\" and \"fury\"'"),
+    ("signi\\\\fying\\\\ nothing\\\\",
+     "signi\\\\fying\\\\ nothing\\\\",
+     b"signi\\fying\\ nothing\\"),
+    ("\\010\\t\\n\\013\\014\\r",
+     "\x08\\t\\n\x0b\x0c\\r",
+     b"\010\011\012\013\014\015")]
 
 
-class DescriptorDatabaseTest(basetest.TestCase):
+class TextEncodingTestCase(basetest.TestCase):
+  def testCEscape(self):
+    for escaped, escaped_utf8, unescaped in TEST_VALUES:
+      self.assertEquals(escaped,
+                        text_encoding.CEscape(unescaped, as_utf8=False))
+      self.assertEquals(escaped_utf8,
+                        text_encoding.CEscape(unescaped, as_utf8=True))
 
-  def testAdd(self):
-    db = descriptor_database.DescriptorDatabase()
-    file_desc_proto = descriptor_pb2.FileDescriptorProto.FromString(
-        factory_test2_pb2.DESCRIPTOR.serialized_pb)
-    db.Add(file_desc_proto)
+  def testCUnescape(self):
+    for escaped, escaped_utf8, unescaped in TEST_VALUES:
+      self.assertEquals(unescaped, text_encoding.CUnescape(escaped))
+      self.assertEquals(unescaped, text_encoding.CUnescape(escaped_utf8))
 
-    self.assertEquals(file_desc_proto, db.FindFileByName(
-        'google/protobuf/internal/factory_test2.proto'))
-    self.assertEquals(file_desc_proto, db.FindFileContainingSymbol(
-        'google.protobuf.python.internal.Factory2Message'))
-    self.assertEquals(file_desc_proto, db.FindFileContainingSymbol(
-        'google.protobuf.python.internal.Factory2Message.NestedFactory2Message'))
-    self.assertEquals(file_desc_proto, db.FindFileContainingSymbol(
-        'google.protobuf.python.internal.Factory2Enum'))
-    self.assertEquals(file_desc_proto, db.FindFileContainingSymbol(
-        'google.protobuf.python.internal.Factory2Message.NestedFactory2Enum'))
 
-if __name__ == '__main__':
+if __name__ == "__main__":
   basetest.main()
