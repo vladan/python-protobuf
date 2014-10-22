@@ -36,7 +36,7 @@ import re
 import sys  ##PY25
 
 # Lookup table for utf8
-_cescape_utf8_to_str = [chr(i) for i in xrange(0, 256)]
+_cescape_utf8_to_str = [chr(i) for i in range(0, 256)]
 _cescape_utf8_to_str[9] = r'\t'  # optional escape
 _cescape_utf8_to_str[10] = r'\n'  # optional escape
 _cescape_utf8_to_str[13] = r'\r'  # optional escape
@@ -46,9 +46,9 @@ _cescape_utf8_to_str[34] = r'\"'  # necessary escape
 _cescape_utf8_to_str[92] = r'\\'  # necessary escape
 
 # Lookup table for non-utf8, with necessary escapes at (o >= 127 or o < 32)
-_cescape_byte_to_str = ([r'\%03o' % i for i in xrange(0, 32)] +
-                        [chr(i) for i in xrange(32, 127)] +
-                        [r'\%03o' % i for i in xrange(127, 256)])
+_cescape_byte_to_str = ([r'\%03o' % i for i in range(0, 32)] +
+                        [chr(i) for i in range(32, 127)] +
+                        [r'\%03o' % i for i in range(127, 256)])
 _cescape_byte_to_str[9] = r'\t'  # optional escape
 _cescape_byte_to_str[10] = r'\n'  # optional escape
 _cescape_byte_to_str[13] = r'\r'  # optional escape
@@ -75,7 +75,7 @@ def CEscape(text, as_utf8):
   """
   # PY3 hack: make Ord work for str and bytes:
   # //platforms/networking/data uses unicode here, hence basestring.
-  Ord = ord if isinstance(text, basestring) else lambda x: x
+  Ord = ord if isinstance(text, str) else lambda x: x
   if as_utf8:
     return ''.join(_cescape_utf8_to_str[Ord(c)] for c in text)
   return ''.join(_cescape_byte_to_str[Ord(c)] for c in text)

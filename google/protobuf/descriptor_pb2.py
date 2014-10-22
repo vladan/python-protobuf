@@ -213,14 +213,14 @@ _FILEDESCRIPTORPROTO = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='name', full_name='google.protobuf.FileDescriptorProto.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     descriptor.FieldDescriptor(
       name='package', full_name='google.protobuf.FileDescriptorProto.package', index=1,
       number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -331,7 +331,7 @@ _DESCRIPTORPROTO = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='name', full_name='google.protobuf.DescriptorProto.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -401,7 +401,7 @@ _FIELDDESCRIPTORPROTO = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='name', full_name='google.protobuf.FieldDescriptorProto.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -429,21 +429,21 @@ _FIELDDESCRIPTORPROTO = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='type_name', full_name='google.protobuf.FieldDescriptorProto.type_name', index=4,
       number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     descriptor.FieldDescriptor(
       name='extendee', full_name='google.protobuf.FieldDescriptorProto.extendee', index=5,
       number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     descriptor.FieldDescriptor(
       name='default_value', full_name='google.protobuf.FieldDescriptorProto.default_value', index=6,
       number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -480,7 +480,7 @@ _ENUMDESCRIPTORPROTO = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='name', full_name='google.protobuf.EnumDescriptorProto.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -522,7 +522,7 @@ _ENUMVALUEDESCRIPTORPROTO = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='name', full_name='google.protobuf.EnumValueDescriptorProto.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -564,7 +564,7 @@ _SERVICEDESCRIPTORPROTO = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='name', full_name='google.protobuf.ServiceDescriptorProto.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -606,21 +606,21 @@ _METHODDESCRIPTORPROTO = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='name', full_name='google.protobuf.MethodDescriptorProto.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     descriptor.FieldDescriptor(
       name='input_type', full_name='google.protobuf.MethodDescriptorProto.input_type', index=1,
       number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     descriptor.FieldDescriptor(
       name='output_type', full_name='google.protobuf.MethodDescriptorProto.output_type', index=2,
       number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -655,14 +655,14 @@ _FILEOPTIONS = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='java_package', full_name='google.protobuf.FileOptions.java_package', index=0,
       number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     descriptor.FieldDescriptor(
       name='java_outer_classname', full_name='google.protobuf.FileOptions.java_outer_classname', index=1,
       number=8, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -803,7 +803,7 @@ _FIELDOPTIONS = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='experimental_map_key', full_name='google.protobuf.FieldOptions.experimental_map_key', index=3,
       number=9, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -951,7 +951,7 @@ _UNINTERPRETEDOPTION_NAMEPART = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='name_part', full_name='google.protobuf.UninterpretedOption.NamePart.name_part', index=0,
       number=1, type=9, cpp_type=9, label=2,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -992,7 +992,7 @@ _UNINTERPRETEDOPTION = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='identifier_value', full_name='google.protobuf.UninterpretedOption.identifier_value', index=1,
       number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -1027,7 +1027,7 @@ _UNINTERPRETEDOPTION = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='aggregate_value', full_name='google.protobuf.UninterpretedOption.aggregate_value', index=6,
       number=8, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value="",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -1164,23 +1164,18 @@ DESCRIPTOR.message_types_by_name['MethodOptions'] = _METHODOPTIONS
 DESCRIPTOR.message_types_by_name['UninterpretedOption'] = _UNINTERPRETEDOPTION
 DESCRIPTOR.message_types_by_name['SourceCodeInfo'] = _SOURCECODEINFO
 
-class FileDescriptorSet(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class FileDescriptorSet(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _FILEDESCRIPTORSET
   
   # @@protoc_insertion_point(class_scope:google.protobuf.FileDescriptorSet)
 
-class FileDescriptorProto(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class FileDescriptorProto(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _FILEDESCRIPTORPROTO
   
   # @@protoc_insertion_point(class_scope:google.protobuf.FileDescriptorProto)
 
-class DescriptorProto(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
-  
-  class ExtensionRange(message.Message):
-    __metaclass__ = reflection.GeneratedProtocolMessageType
+class DescriptorProto(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
+  class ExtensionRange(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
     DESCRIPTOR = _DESCRIPTORPROTO_EXTENSIONRANGE
     
     # @@protoc_insertion_point(class_scope:google.protobuf.DescriptorProto.ExtensionRange)
@@ -1188,83 +1183,68 @@ class DescriptorProto(message.Message):
   
   # @@protoc_insertion_point(class_scope:google.protobuf.DescriptorProto)
 
-class FieldDescriptorProto(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class FieldDescriptorProto(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _FIELDDESCRIPTORPROTO
   
   # @@protoc_insertion_point(class_scope:google.protobuf.FieldDescriptorProto)
 
-class EnumDescriptorProto(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class EnumDescriptorProto(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _ENUMDESCRIPTORPROTO
   
   # @@protoc_insertion_point(class_scope:google.protobuf.EnumDescriptorProto)
 
-class EnumValueDescriptorProto(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class EnumValueDescriptorProto(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _ENUMVALUEDESCRIPTORPROTO
   
   # @@protoc_insertion_point(class_scope:google.protobuf.EnumValueDescriptorProto)
 
-class ServiceDescriptorProto(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class ServiceDescriptorProto(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _SERVICEDESCRIPTORPROTO
   
   # @@protoc_insertion_point(class_scope:google.protobuf.ServiceDescriptorProto)
 
-class MethodDescriptorProto(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class MethodDescriptorProto(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _METHODDESCRIPTORPROTO
   
   # @@protoc_insertion_point(class_scope:google.protobuf.MethodDescriptorProto)
 
-class FileOptions(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class FileOptions(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _FILEOPTIONS
   
   # @@protoc_insertion_point(class_scope:google.protobuf.FileOptions)
 
-class MessageOptions(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class MessageOptions(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _MESSAGEOPTIONS
   
   # @@protoc_insertion_point(class_scope:google.protobuf.MessageOptions)
 
-class FieldOptions(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class FieldOptions(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _FIELDOPTIONS
   
   # @@protoc_insertion_point(class_scope:google.protobuf.FieldOptions)
 
-class EnumOptions(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class EnumOptions(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _ENUMOPTIONS
   
   # @@protoc_insertion_point(class_scope:google.protobuf.EnumOptions)
 
-class EnumValueOptions(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class EnumValueOptions(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _ENUMVALUEOPTIONS
   
   # @@protoc_insertion_point(class_scope:google.protobuf.EnumValueOptions)
 
-class ServiceOptions(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class ServiceOptions(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _SERVICEOPTIONS
   
   # @@protoc_insertion_point(class_scope:google.protobuf.ServiceOptions)
 
-class MethodOptions(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class MethodOptions(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _METHODOPTIONS
   
   # @@protoc_insertion_point(class_scope:google.protobuf.MethodOptions)
 
-class UninterpretedOption(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
-  
-  class NamePart(message.Message):
-    __metaclass__ = reflection.GeneratedProtocolMessageType
+class UninterpretedOption(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
+  class NamePart(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
     DESCRIPTOR = _UNINTERPRETEDOPTION_NAMEPART
     
     # @@protoc_insertion_point(class_scope:google.protobuf.UninterpretedOption.NamePart)
@@ -1272,11 +1252,8 @@ class UninterpretedOption(message.Message):
   
   # @@protoc_insertion_point(class_scope:google.protobuf.UninterpretedOption)
 
-class SourceCodeInfo(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
-  
-  class Location(message.Message):
-    __metaclass__ = reflection.GeneratedProtocolMessageType
+class SourceCodeInfo(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
+  class Location(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
     DESCRIPTOR = _SOURCECODEINFO_LOCATION
     
     # @@protoc_insertion_point(class_scope:google.protobuf.SourceCodeInfo.Location)

@@ -129,20 +129,17 @@ DESCRIPTOR.message_types_by_name['TopLevelMessage'] = _TOPLEVELMESSAGE
 DESCRIPTOR.message_types_by_name['ExtendedMessage'] = _EXTENDEDMESSAGE
 DESCRIPTOR.message_types_by_name['ForeignMessage'] = _FOREIGNMESSAGE
 
-class TopLevelMessage(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TopLevelMessage(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TOPLEVELMESSAGE
   
   # @@protoc_insertion_point(class_scope:google.protobuf.internal.TopLevelMessage)
 
-class ExtendedMessage(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class ExtendedMessage(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _EXTENDEDMESSAGE
   
   # @@protoc_insertion_point(class_scope:google.protobuf.internal.ExtendedMessage)
 
-class ForeignMessage(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class ForeignMessage(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _FOREIGNMESSAGE
   
   # @@protoc_insertion_point(class_scope:google.protobuf.internal.ForeignMessage)

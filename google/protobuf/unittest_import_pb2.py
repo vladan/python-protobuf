@@ -74,8 +74,7 @@ _IMPORTMESSAGE = descriptor.Descriptor(
 
 DESCRIPTOR.message_types_by_name['ImportMessage'] = _IMPORTMESSAGE
 
-class ImportMessage(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class ImportMessage(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _IMPORTMESSAGE
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest_import.ImportMessage)

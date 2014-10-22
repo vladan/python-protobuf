@@ -125,7 +125,7 @@ class TextFormatTest(basetest.TestCase):
     message.repeated_double.append(1.23e22)
     message.repeated_double.append(1.23e-18)
     message.repeated_string.append('\000\001\a\b\f\n\r\t\v\\\'"')
-    message.repeated_string.append(u'\u00fc\ua71f')
+    message.repeated_string.append('\u00fc\ua71f')
     self.CompareToGoldenText(
         self.RemoveRedundantZeros(text_format.MessageToString(message)),
         'repeated_int64: -9223372036854775808\n'
@@ -138,10 +138,10 @@ class TextFormatTest(basetest.TestCase):
         'repeated_string: "\\303\\274\\352\\234\\237"\n')
 
   def testPrintExoticUnicodeSubclass(self):
-    class UnicodeSub(unicode):
+    class UnicodeSub(str):
       pass
     message = unittest_pb2.TestAllTypes()
-    message.repeated_string.append(UnicodeSub(u'\u00fc\ua71f'))
+    message.repeated_string.append(UnicodeSub('\u00fc\ua71f'))
     self.CompareToGoldenText(
         text_format.MessageToString(message),
         'repeated_string: "\\303\\274\\352\\234\\237"\n')
@@ -198,7 +198,7 @@ class TextFormatTest(basetest.TestCase):
     message.repeated_double.append(1.23e22)
     message.repeated_double.append(1.23e-18)
     message.repeated_string.append('\000\001\a\b\f\n\r\t\v\\\'"')
-    message.repeated_string.append(u'\u00fc\ua71f')
+    message.repeated_string.append('\u00fc\ua71f')
     self.CompareToGoldenText(
         self.RemoveRedundantZeros(
             text_format.MessageToString(message, as_one_line=True)),
@@ -219,7 +219,7 @@ class TextFormatTest(basetest.TestCase):
     message.repeated_double.append(1.23e22)
     message.repeated_double.append(1.23e-18)
     message.repeated_string.append('\000\001\a\b\f\n\r\t\v\\\'"')
-    message.repeated_string.append(u'\u00fc\ua71f')
+    message.repeated_string.append('\u00fc\ua71f')
 
     # Test as_utf8 = False.
     wire_text = text_format.MessageToString(
@@ -227,7 +227,7 @@ class TextFormatTest(basetest.TestCase):
     parsed_message = unittest_pb2.TestAllTypes()
     r = text_format.Parse(wire_text, parsed_message)
     self.assertIs(r, parsed_message)
-    self.assertEquals(message, parsed_message)
+    self.assertEqual(message, parsed_message)
 
     # Test as_utf8 = True.
     wire_text = text_format.MessageToString(
@@ -235,17 +235,17 @@ class TextFormatTest(basetest.TestCase):
     parsed_message = unittest_pb2.TestAllTypes()
     r = text_format.Parse(wire_text, parsed_message)
     self.assertIs(r, parsed_message)
-    self.assertEquals(message, parsed_message,
+    self.assertEqual(message, parsed_message,
                       '\n%s != %s' % (message, parsed_message))
 
   def testPrintRawUtf8String(self):
     message = unittest_pb2.TestAllTypes()
-    message.repeated_string.append(u'\u00fc\ua71f')
+    message.repeated_string.append('\u00fc\ua71f')
     text = text_format.MessageToString(message, as_utf8=True)
     self.CompareToGoldenText(text, 'repeated_string: "\303\274\352\234\237"\n')
     parsed_message = unittest_pb2.TestAllTypes()
     text_format.Parse(text, parsed_message)
-    self.assertEquals(message, parsed_message,
+    self.assertEqual(message, parsed_message,
                       '\n%s != %s' % (message, parsed_message))
 
   def testPrintFloatFormat(self):
@@ -303,7 +303,7 @@ class TextFormatTest(basetest.TestCase):
 
     message = unittest_pb2.TestAllTypes()
     test_util.SetAllFields(message)
-    self.assertEquals(message, parsed_message)
+    self.assertEqual(message, parsed_message)
 
   def testParseGoldenExtensions(self):
     golden_text = '\n'.join(self.ReadGolden(
@@ -313,7 +313,7 @@ class TextFormatTest(basetest.TestCase):
 
     message = unittest_pb2.TestAllExtensions()
     test_util.SetAllExtensions(message)
-    self.assertEquals(message, parsed_message)
+    self.assertEqual(message, parsed_message)
 
   def testParseAllFields(self):
     message = unittest_pb2.TestAllTypes()
@@ -354,8 +354,8 @@ class TextFormatTest(basetest.TestCase):
     text_format.Parse(text, message)
     ext1 = unittest_mset_pb2.TestMessageSetExtension1.message_set_extension
     ext2 = unittest_mset_pb2.TestMessageSetExtension2.message_set_extension
-    self.assertEquals(23, message.message_set.Extensions[ext1].i)
-    self.assertEquals('foo', message.message_set.Extensions[ext2].str)
+    self.assertEqual(23, message.message_set.Extensions[ext1].i)
+    self.assertEqual('foo', message.message_set.Extensions[ext2].str)
 
   def testParseExotic(self):
     message = unittest_pb2.TestAllTypes()
@@ -380,8 +380,8 @@ class TextFormatTest(basetest.TestCase):
     self.assertEqual(
         '\000\001\a\b\f\n\r\t\v\\\'"', message.repeated_string[0])
     self.assertEqual('foocorgegrault', message.repeated_string[1])
-    self.assertEqual(u'\u00fc\ua71f', message.repeated_string[2])
-    self.assertEqual(u'\u00fc', message.repeated_string[3])
+    self.assertEqual('\u00fc\ua71f', message.repeated_string[2])
+    self.assertEqual('\u00fc', message.repeated_string[3])
 
   def testParseTrailingCommas(self):
     message = unittest_pb2.TestAllTypes()
@@ -395,14 +395,14 @@ class TextFormatTest(basetest.TestCase):
     self.assertEqual(100, message.repeated_int64[0])
     self.assertEqual(200, message.repeated_int64[1])
     self.assertEqual(300, message.repeated_int64[2])
-    self.assertEqual(u'one', message.repeated_string[0])
-    self.assertEqual(u'two', message.repeated_string[1])
+    self.assertEqual('one', message.repeated_string[0])
+    self.assertEqual('two', message.repeated_string[1])
 
   def testParseEmptyText(self):
     message = unittest_pb2.TestAllTypes()
     text = ''
     text_format.Parse(text, message)
-    self.assertEquals(unittest_pb2.TestAllTypes(), message)
+    self.assertEqual(unittest_pb2.TestAllTypes(), message)
 
   def testParseInvalidUtf8(self):
     message = unittest_pb2.TestAllTypes()
@@ -575,7 +575,7 @@ class TextFormatTest(basetest.TestCase):
 
     message = unittest_pb2.TestAllTypes()
     test_util.SetAllFields(message)
-    self.assertEquals(message, parsed_message)
+    self.assertEqual(message, parsed_message)
 
   def testMergeLinesGolden(self):
     opened = self.ReadGolden('text_format_unittest_data.txt')

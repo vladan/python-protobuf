@@ -242,7 +242,7 @@ OPTIONAL_STRING_EXTENSION_FIELD_NUMBER = 14
 optional_string_extension = descriptor.FieldDescriptor(
   name='optional_string_extension', full_name='protobuf_unittest.optional_string_extension', index=13,
   number=14, type=9, cpp_type=9, label=1,
-  has_default_value=False, default_value=unicode("", "utf-8"),
+  has_default_value=False, default_value=str("", "utf-8"),
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
   options=None)
@@ -314,7 +314,7 @@ OPTIONAL_STRING_PIECE_EXTENSION_FIELD_NUMBER = 24
 optional_string_piece_extension = descriptor.FieldDescriptor(
   name='optional_string_piece_extension', full_name='protobuf_unittest.optional_string_piece_extension', index=22,
   number=24, type=9, cpp_type=9, label=1,
-  has_default_value=False, default_value=unicode("", "utf-8"),
+  has_default_value=False, default_value=str("", "utf-8"),
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
   options=descriptor._ParseOptions(descriptor_pb2.FieldOptions(), '\010\002'))
@@ -322,7 +322,7 @@ OPTIONAL_CORD_EXTENSION_FIELD_NUMBER = 25
 optional_cord_extension = descriptor.FieldDescriptor(
   name='optional_cord_extension', full_name='protobuf_unittest.optional_cord_extension', index=23,
   number=25, type=9, cpp_type=9, label=1,
-  has_default_value=False, default_value=unicode("", "utf-8"),
+  has_default_value=False, default_value=str("", "utf-8"),
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
   options=descriptor._ParseOptions(descriptor_pb2.FieldOptions(), '\010\001'))
@@ -626,7 +626,7 @@ DEFAULT_STRING_EXTENSION_FIELD_NUMBER = 74
 default_string_extension = descriptor.FieldDescriptor(
   name='default_string_extension', full_name='protobuf_unittest.default_string_extension', index=61,
   number=74, type=9, cpp_type=9, label=1,
-  has_default_value=True, default_value=unicode("hello", "utf-8"),
+  has_default_value=True, default_value=str("hello", "utf-8"),
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
   options=None)
@@ -666,7 +666,7 @@ DEFAULT_STRING_PIECE_EXTENSION_FIELD_NUMBER = 84
 default_string_piece_extension = descriptor.FieldDescriptor(
   name='default_string_piece_extension', full_name='protobuf_unittest.default_string_piece_extension', index=66,
   number=84, type=9, cpp_type=9, label=1,
-  has_default_value=True, default_value=unicode("abc", "utf-8"),
+  has_default_value=True, default_value=str("abc", "utf-8"),
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
   options=descriptor._ParseOptions(descriptor_pb2.FieldOptions(), '\010\002'))
@@ -674,7 +674,7 @@ DEFAULT_CORD_EXTENSION_FIELD_NUMBER = 85
 default_cord_extension = descriptor.FieldDescriptor(
   name='default_cord_extension', full_name='protobuf_unittest.default_cord_extension', index=67,
   number=85, type=9, cpp_type=9, label=1,
-  has_default_value=True, default_value=unicode("123", "utf-8"),
+  has_default_value=True, default_value=str("123", "utf-8"),
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
   options=descriptor._ParseOptions(descriptor_pb2.FieldOptions(), '\010\001'))
@@ -682,7 +682,7 @@ MY_EXTENSION_STRING_FIELD_NUMBER = 50
 my_extension_string = descriptor.FieldDescriptor(
   name='my_extension_string', full_name='protobuf_unittest.my_extension_string', index=68,
   number=50, type=9, cpp_type=9, label=1,
-  has_default_value=False, default_value=unicode("", "utf-8"),
+  has_default_value=False, default_value=str("", "utf-8"),
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
   options=None)
@@ -1040,7 +1040,7 @@ _TESTALLTYPES = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='optional_string', full_name='protobuf_unittest.TestAllTypes.optional_string', index=13,
       number=14, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -1103,14 +1103,14 @@ _TESTALLTYPES = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='optional_string_piece', full_name='protobuf_unittest.TestAllTypes.optional_string_piece', index=22,
       number=24, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=descriptor._ParseOptions(descriptor_pb2.FieldOptions(), '\010\002')),
     descriptor.FieldDescriptor(
       name='optional_cord', full_name='protobuf_unittest.TestAllTypes.optional_cord', index=23,
       number=25, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=descriptor._ParseOptions(descriptor_pb2.FieldOptions(), '\010\001')),
@@ -1376,7 +1376,7 @@ _TESTALLTYPES = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='default_string', full_name='protobuf_unittest.TestAllTypes.default_string', index=61,
       number=74, type=9, cpp_type=9, label=1,
-      has_default_value=True, default_value=unicode("hello", "utf-8"),
+      has_default_value=True, default_value=str("hello", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -1411,14 +1411,14 @@ _TESTALLTYPES = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='default_string_piece', full_name='protobuf_unittest.TestAllTypes.default_string_piece', index=66,
       number=84, type=9, cpp_type=9, label=1,
-      has_default_value=True, default_value=unicode("abc", "utf-8"),
+      has_default_value=True, default_value=str("abc", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=descriptor._ParseOptions(descriptor_pb2.FieldOptions(), '\010\002')),
     descriptor.FieldDescriptor(
       name='default_cord', full_name='protobuf_unittest.TestAllTypes.default_cord', index=67,
       number=85, type=9, cpp_type=9, label=1,
-      has_default_value=True, default_value=unicode("123", "utf-8"),
+      has_default_value=True, default_value=str("123", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=descriptor._ParseOptions(descriptor_pb2.FieldOptions(), '\010\001')),
@@ -1582,7 +1582,7 @@ _TESTNESTEDEXTENSION = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='test', full_name='protobuf_unittest.TestNestedExtension.test', index=0,
       number=1002, type=9, cpp_type=9, label=1,
-      has_default_value=True, default_value=unicode("test", "utf-8"),
+      has_default_value=True, default_value=str("test", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=True, extension_scope=None,
       options=None),
@@ -2305,7 +2305,7 @@ _TESTCAMELCASEFIELDNAMES = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='StringField', full_name='protobuf_unittest.TestCamelCaseFieldNames.StringField', index=1,
       number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -2326,14 +2326,14 @@ _TESTCAMELCASEFIELDNAMES = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='StringPieceField', full_name='protobuf_unittest.TestCamelCaseFieldNames.StringPieceField', index=4,
       number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=descriptor._ParseOptions(descriptor_pb2.FieldOptions(), '\010\002')),
     descriptor.FieldDescriptor(
       name='CordField', full_name='protobuf_unittest.TestCamelCaseFieldNames.CordField', index=5,
       number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=descriptor._ParseOptions(descriptor_pb2.FieldOptions(), '\010\001')),
@@ -2403,7 +2403,7 @@ _TESTFIELDORDERINGS = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='my_string', full_name='protobuf_unittest.TestFieldOrderings.my_string', index=0,
       number=11, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -2480,7 +2480,7 @@ _TESTEXTREMEDEFAULTVALUES = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='utf8_string', full_name='protobuf_unittest.TestExtremeDefaultValues.utf8_string', index=5,
       number=6, type=9, cpp_type=9, label=1,
-      has_default_value=True, default_value=unicode("\341\210\264", "utf-8"),
+      has_default_value=True, default_value=str("\341\210\264", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -2578,7 +2578,7 @@ _TESTEXTREMEDEFAULTVALUES = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='cpp_trigraph', full_name='protobuf_unittest.TestExtremeDefaultValues.cpp_trigraph', index=19,
       number=20, type=9, cpp_type=9, label=1,
-      has_default_value=True, default_value=unicode("? ? ?? ?? ??? ??/ ??-", "utf-8"),
+      has_default_value=True, default_value=str("? ? ?? ?? ??? ??/ ??-", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -2634,7 +2634,7 @@ _ONESTRING = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='data', full_name='protobuf_unittest.OneString.data', index=0,
       number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -3265,23 +3265,18 @@ DESCRIPTOR.message_types_by_name['FooResponse'] = _FOORESPONSE
 DESCRIPTOR.message_types_by_name['BarRequest'] = _BARREQUEST
 DESCRIPTOR.message_types_by_name['BarResponse'] = _BARRESPONSE
 
-class TestAllTypes(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
-  
-  class NestedMessage(message.Message):
-    __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestAllTypes(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
+  class NestedMessage(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
     DESCRIPTOR = _TESTALLTYPES_NESTEDMESSAGE
     
     # @@protoc_insertion_point(class_scope:protobuf_unittest.TestAllTypes.NestedMessage)
   
-  class OptionalGroup(message.Message):
-    __metaclass__ = reflection.GeneratedProtocolMessageType
+  class OptionalGroup(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
     DESCRIPTOR = _TESTALLTYPES_OPTIONALGROUP
     
     # @@protoc_insertion_point(class_scope:protobuf_unittest.TestAllTypes.OptionalGroup)
   
-  class RepeatedGroup(message.Message):
-    __metaclass__ = reflection.GeneratedProtocolMessageType
+  class RepeatedGroup(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
     DESCRIPTOR = _TESTALLTYPES_REPEATEDGROUP
     
     # @@protoc_insertion_point(class_scope:protobuf_unittest.TestAllTypes.RepeatedGroup)
@@ -3289,113 +3284,93 @@ class TestAllTypes(message.Message):
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestAllTypes)
 
-class TestDeprecatedFields(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestDeprecatedFields(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTDEPRECATEDFIELDS
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestDeprecatedFields)
 
-class ForeignMessage(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class ForeignMessage(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _FOREIGNMESSAGE
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.ForeignMessage)
 
-class TestAllExtensions(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestAllExtensions(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTALLEXTENSIONS
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestAllExtensions)
 
-class OptionalGroup_extension(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class OptionalGroup_extension(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _OPTIONALGROUP_EXTENSION
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.OptionalGroup_extension)
 
-class RepeatedGroup_extension(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class RepeatedGroup_extension(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _REPEATEDGROUP_EXTENSION
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.RepeatedGroup_extension)
 
-class TestNestedExtension(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestNestedExtension(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTNESTEDEXTENSION
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestNestedExtension)
 
-class TestRequired(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestRequired(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTREQUIRED
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestRequired)
 
-class TestRequiredForeign(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestRequiredForeign(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTREQUIREDFOREIGN
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestRequiredForeign)
 
-class TestForeignNested(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestForeignNested(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTFOREIGNNESTED
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestForeignNested)
 
-class TestEmptyMessage(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestEmptyMessage(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTEMPTYMESSAGE
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestEmptyMessage)
 
-class TestEmptyMessageWithExtensions(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestEmptyMessageWithExtensions(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTEMPTYMESSAGEWITHEXTENSIONS
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestEmptyMessageWithExtensions)
 
-class TestMultipleExtensionRanges(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestMultipleExtensionRanges(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTMULTIPLEEXTENSIONRANGES
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestMultipleExtensionRanges)
 
-class TestReallyLargeTagNumber(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestReallyLargeTagNumber(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTREALLYLARGETAGNUMBER
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestReallyLargeTagNumber)
 
-class TestRecursiveMessage(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestRecursiveMessage(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTRECURSIVEMESSAGE
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestRecursiveMessage)
 
-class TestMutualRecursionA(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestMutualRecursionA(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTMUTUALRECURSIONA
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestMutualRecursionA)
 
-class TestMutualRecursionB(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestMutualRecursionB(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTMUTUALRECURSIONB
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestMutualRecursionB)
 
-class TestDupFieldNumber(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
-  
-  class Foo(message.Message):
-    __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestDupFieldNumber(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
+  class Foo(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
     DESCRIPTOR = _TESTDUPFIELDNUMBER_FOO
     
     # @@protoc_insertion_point(class_scope:protobuf_unittest.TestDupFieldNumber.Foo)
   
-  class Bar(message.Message):
-    __metaclass__ = reflection.GeneratedProtocolMessageType
+  class Bar(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
     DESCRIPTOR = _TESTDUPFIELDNUMBER_BAR
     
     # @@protoc_insertion_point(class_scope:protobuf_unittest.TestDupFieldNumber.Bar)
@@ -3403,11 +3378,8 @@ class TestDupFieldNumber(message.Message):
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestDupFieldNumber)
 
-class TestNestedMessageHasBits(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
-  
-  class NestedMessage(message.Message):
-    __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestNestedMessageHasBits(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
+  class NestedMessage(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
     DESCRIPTOR = _TESTNESTEDMESSAGEHASBITS_NESTEDMESSAGE
     
     # @@protoc_insertion_point(class_scope:protobuf_unittest.TestNestedMessageHasBits.NestedMessage)
@@ -3415,65 +3387,53 @@ class TestNestedMessageHasBits(message.Message):
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestNestedMessageHasBits)
 
-class TestCamelCaseFieldNames(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestCamelCaseFieldNames(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTCAMELCASEFIELDNAMES
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestCamelCaseFieldNames)
 
-class TestFieldOrderings(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestFieldOrderings(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTFIELDORDERINGS
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestFieldOrderings)
 
-class TestExtremeDefaultValues(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestExtremeDefaultValues(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTEXTREMEDEFAULTVALUES
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestExtremeDefaultValues)
 
-class SparseEnumMessage(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class SparseEnumMessage(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _SPARSEENUMMESSAGE
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.SparseEnumMessage)
 
-class OneString(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class OneString(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _ONESTRING
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.OneString)
 
-class OneBytes(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class OneBytes(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _ONEBYTES
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.OneBytes)
 
-class TestPackedTypes(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestPackedTypes(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTPACKEDTYPES
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestPackedTypes)
 
-class TestUnpackedTypes(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestUnpackedTypes(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTUNPACKEDTYPES
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestUnpackedTypes)
 
-class TestPackedExtensions(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestPackedExtensions(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTPACKEDEXTENSIONS
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestPackedExtensions)
 
-class TestDynamicExtensions(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
-  
-  class DynamicMessageType(message.Message):
-    __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestDynamicExtensions(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
+  class DynamicMessageType(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
     DESCRIPTOR = _TESTDYNAMICEXTENSIONS_DYNAMICMESSAGETYPE
     
     # @@protoc_insertion_point(class_scope:protobuf_unittest.TestDynamicExtensions.DynamicMessageType)
@@ -3481,32 +3441,27 @@ class TestDynamicExtensions(message.Message):
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestDynamicExtensions)
 
-class TestRepeatedScalarDifferentTagSizes(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestRepeatedScalarDifferentTagSizes(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTREPEATEDSCALARDIFFERENTTAGSIZES
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestRepeatedScalarDifferentTagSizes)
 
-class FooRequest(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class FooRequest(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _FOOREQUEST
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.FooRequest)
 
-class FooResponse(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class FooResponse(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _FOORESPONSE
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.FooResponse)
 
-class BarRequest(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class BarRequest(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _BARREQUEST
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.BarRequest)
 
-class BarResponse(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class BarResponse(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _BARRESPONSE
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.BarResponse)
@@ -3648,11 +3603,9 @@ _TESTSERVICE = descriptor.ServiceDescriptor(
   ),
 ])
 
-class TestService(service.Service):
-  __metaclass__ = service_reflection.GeneratedServiceType
+class TestService(service.Service, metaclass=service_reflection.GeneratedServiceType):
   DESCRIPTOR = _TESTSERVICE
-class TestService_Stub(TestService):
-  __metaclass__ = service_reflection.GeneratedServiceStubType
+class TestService_Stub(TestService, metaclass=service_reflection.GeneratedServiceStubType):
   DESCRIPTOR = _TESTSERVICE
 
 # @@protoc_insertion_point(module_scope)

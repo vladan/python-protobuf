@@ -98,7 +98,7 @@ class MessageTest(basetest.TestCase):
     golden_message.ParseFromString(golden_data)
     all_set = unittest_pb2.TestAllExtensions()
     test_util.SetAllExtensions(all_set)
-    self.assertEquals(all_set, golden_message)
+    self.assertEqual(all_set, golden_message)
     self.assertEqual(golden_data, golden_message.SerializeToString())
     golden_copy = copy.deepcopy(golden_message)
     self.assertEqual(golden_data, golden_copy.SerializeToString())
@@ -109,7 +109,7 @@ class MessageTest(basetest.TestCase):
     golden_message.ParseFromString(golden_data)
     all_set = unittest_pb2.TestPackedTypes()
     test_util.SetAllPackedFields(all_set)
-    self.assertEquals(all_set, golden_message)
+    self.assertEqual(all_set, golden_message)
     self.assertEqual(golden_data, all_set.SerializeToString())
     golden_copy = copy.deepcopy(golden_message)
     self.assertEqual(golden_data, golden_copy.SerializeToString())
@@ -120,7 +120,7 @@ class MessageTest(basetest.TestCase):
     golden_message.ParseFromString(golden_data)
     all_set = unittest_pb2.TestPackedExtensions()
     test_util.SetAllPackedExtensions(all_set)
-    self.assertEquals(all_set, golden_message)
+    self.assertEqual(all_set, golden_message)
     self.assertEqual(golden_data, all_set.SerializeToString())
     golden_copy = copy.deepcopy(golden_message)
     self.assertEqual(golden_data, golden_copy.SerializeToString())
@@ -132,7 +132,7 @@ class MessageTest(basetest.TestCase):
     pickled_message = pickle.dumps(golden_message)
 
     unpickled_message = pickle.loads(pickled_message)
-    self.assertEquals(unpickled_message, golden_message)
+    self.assertEqual(unpickled_message, golden_message)
 
 
   def testPickleIncompleteProto(self):
@@ -140,8 +140,8 @@ class MessageTest(basetest.TestCase):
     pickled_message = pickle.dumps(golden_message)
 
     unpickled_message = pickle.loads(pickled_message)
-    self.assertEquals(unpickled_message, golden_message)
-    self.assertEquals(unpickled_message.a, 1)
+    self.assertEqual(unpickled_message, golden_message)
+    self.assertEqual(unpickled_message.a, 1)
     # This is still an incomplete proto - so serializing should fail
     self.assertRaises(message.EncodeError, unpickled_message.SerializeToString)
 
@@ -575,7 +575,7 @@ class MessageTest(basetest.TestCase):
     self.assertEqual('oneof_uint32', m.WhichOneof('oneof_field'))
     self.assertTrue(m.HasField('oneof_uint32'))
 
-    m.oneof_string = u'foo'
+    m.oneof_string = 'foo'
     self.assertEqual('oneof_string', m.WhichOneof('oneof_field'))
     self.assertFalse(m.HasField('oneof_uint32'))
     self.assertTrue(m.HasField('oneof_string'))

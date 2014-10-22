@@ -72,8 +72,7 @@ _TESTMESSAGE = descriptor.Descriptor(
 
 DESCRIPTOR.message_types_by_name['TestMessage'] = _TESTMESSAGE
 
-class TestMessage(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestMessage(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTMESSAGE
   
   # @@protoc_insertion_point(class_scope:google.protobuf.no_generic_services_test.TestMessage)

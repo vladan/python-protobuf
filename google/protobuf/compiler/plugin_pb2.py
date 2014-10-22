@@ -34,7 +34,7 @@ _CODEGENERATORREQUEST = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='parameter', full_name='google.protobuf.compiler.CodeGeneratorRequest.parameter', index=1,
       number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -69,21 +69,21 @@ _CODEGENERATORRESPONSE_FILE = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='name', full_name='google.protobuf.compiler.CodeGeneratorResponse.File.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     descriptor.FieldDescriptor(
       name='insertion_point', full_name='google.protobuf.compiler.CodeGeneratorResponse.File.insertion_point', index=1,
       number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     descriptor.FieldDescriptor(
       name='content', full_name='google.protobuf.compiler.CodeGeneratorResponse.File.content', index=2,
       number=15, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -110,7 +110,7 @@ _CODEGENERATORRESPONSE = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='error', full_name='google.protobuf.compiler.CodeGeneratorResponse.error', index=0,
       number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -140,17 +140,13 @@ _CODEGENERATORRESPONSE.fields_by_name['file'].message_type = _CODEGENERATORRESPO
 DESCRIPTOR.message_types_by_name['CodeGeneratorRequest'] = _CODEGENERATORREQUEST
 DESCRIPTOR.message_types_by_name['CodeGeneratorResponse'] = _CODEGENERATORRESPONSE
 
-class CodeGeneratorRequest(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class CodeGeneratorRequest(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _CODEGENERATORREQUEST
   
   # @@protoc_insertion_point(class_scope:google.protobuf.compiler.CodeGeneratorRequest)
 
-class CodeGeneratorResponse(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
-  
-  class File(message.Message):
-    __metaclass__ = reflection.GeneratedProtocolMessageType
+class CodeGeneratorResponse(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
+  class File(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
     DESCRIPTOR = _CODEGENERATORRESPONSE_FILE
     
     # @@protoc_insertion_point(class_scope:google.protobuf.compiler.CodeGeneratorResponse.File)

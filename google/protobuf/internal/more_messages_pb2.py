@@ -75,8 +75,7 @@ _OUTOFORDERFIELDS = descriptor.Descriptor(
 
 DESCRIPTOR.message_types_by_name['OutOfOrderFields'] = _OUTOFORDERFIELDS
 
-class OutOfOrderFields(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class OutOfOrderFields(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _OUTOFORDERFIELDS
   
   # @@protoc_insertion_point(class_scope:google.protobuf.internal.OutOfOrderFields)

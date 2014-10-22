@@ -110,7 +110,7 @@ _TESTMESSAGESETEXTENSION2 = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='str', full_name='protobuf_unittest.TestMessageSetExtension2.str', index=0,
       number=25, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -205,35 +205,28 @@ DESCRIPTOR.message_types_by_name['TestMessageSetExtension1'] = _TESTMESSAGESETEX
 DESCRIPTOR.message_types_by_name['TestMessageSetExtension2'] = _TESTMESSAGESETEXTENSION2
 DESCRIPTOR.message_types_by_name['RawMessageSet'] = _RAWMESSAGESET
 
-class TestMessageSet(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestMessageSet(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTMESSAGESET
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestMessageSet)
 
-class TestMessageSetContainer(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestMessageSetContainer(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTMESSAGESETCONTAINER
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestMessageSetContainer)
 
-class TestMessageSetExtension1(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestMessageSetExtension1(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTMESSAGESETEXTENSION1
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestMessageSetExtension1)
 
-class TestMessageSetExtension2(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestMessageSetExtension2(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTMESSAGESETEXTENSION2
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestMessageSetExtension2)
 
-class RawMessageSet(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
-  
-  class Item(message.Message):
-    __metaclass__ = reflection.GeneratedProtocolMessageType
+class RawMessageSet(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
+  class Item(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
     DESCRIPTOR = _RAWMESSAGESET_ITEM
     
     # @@protoc_insertion_point(class_scope:protobuf_unittest.RawMessageSet.Item)

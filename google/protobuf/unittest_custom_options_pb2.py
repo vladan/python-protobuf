@@ -232,7 +232,7 @@ STRING_OPT_FIELD_NUMBER = 7673285
 string_opt = descriptor.FieldDescriptor(
   name='string_opt', full_name='protobuf_unittest.string_opt', index=21,
   number=7673285, type=9, cpp_type=9, label=1,
-  has_default_value=False, default_value=unicode("", "utf-8"),
+  has_default_value=False, default_value=str("", "utf-8"),
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
   options=None)
@@ -434,7 +434,7 @@ _TESTMESSAGEWITHCUSTOMOPTIONS = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='field1', full_name='protobuf_unittest.TestMessageWithCustomOptions.field1', index=0,
       number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=descriptor._ParseOptions(descriptor_pb2.FieldOptions(), '\010\001\301\340\303\035-\341u\n\002\000\000\000')),
@@ -903,7 +903,7 @@ _AGGREGATEMESSAGESETELEMENT = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='s', full_name='protobuf_unittest.AggregateMessageSetElement.s', index=0,
       number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -945,7 +945,7 @@ _AGGREGATE = descriptor.Descriptor(
     descriptor.FieldDescriptor(
       name='s', full_name='protobuf_unittest.Aggregate.s', index=1,
       number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=unicode("", "utf-8"),
+      has_default_value=False, default_value=str("", "utf-8"),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -1048,77 +1048,63 @@ DESCRIPTOR.message_types_by_name['AggregateMessageSetElement'] = _AGGREGATEMESSA
 DESCRIPTOR.message_types_by_name['Aggregate'] = _AGGREGATE
 DESCRIPTOR.message_types_by_name['AggregateMessage'] = _AGGREGATEMESSAGE
 
-class TestMessageWithCustomOptions(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class TestMessageWithCustomOptions(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _TESTMESSAGEWITHCUSTOMOPTIONS
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.TestMessageWithCustomOptions)
 
-class CustomOptionFooRequest(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class CustomOptionFooRequest(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _CUSTOMOPTIONFOOREQUEST
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.CustomOptionFooRequest)
 
-class CustomOptionFooResponse(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class CustomOptionFooResponse(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _CUSTOMOPTIONFOORESPONSE
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.CustomOptionFooResponse)
 
-class DummyMessageContainingEnum(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class DummyMessageContainingEnum(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _DUMMYMESSAGECONTAININGENUM
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.DummyMessageContainingEnum)
 
-class DummyMessageInvalidAsOptionType(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class DummyMessageInvalidAsOptionType(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _DUMMYMESSAGEINVALIDASOPTIONTYPE
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.DummyMessageInvalidAsOptionType)
 
-class CustomOptionMinIntegerValues(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class CustomOptionMinIntegerValues(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _CUSTOMOPTIONMININTEGERVALUES
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.CustomOptionMinIntegerValues)
 
-class CustomOptionMaxIntegerValues(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class CustomOptionMaxIntegerValues(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _CUSTOMOPTIONMAXINTEGERVALUES
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.CustomOptionMaxIntegerValues)
 
-class CustomOptionOtherValues(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class CustomOptionOtherValues(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _CUSTOMOPTIONOTHERVALUES
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.CustomOptionOtherValues)
 
-class SettingRealsFromPositiveInts(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class SettingRealsFromPositiveInts(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _SETTINGREALSFROMPOSITIVEINTS
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.SettingRealsFromPositiveInts)
 
-class SettingRealsFromNegativeInts(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class SettingRealsFromNegativeInts(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _SETTINGREALSFROMNEGATIVEINTS
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.SettingRealsFromNegativeInts)
 
-class ComplexOptionType1(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class ComplexOptionType1(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _COMPLEXOPTIONTYPE1
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.ComplexOptionType1)
 
-class ComplexOptionType2(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
-  
-  class ComplexOptionType4(message.Message):
-    __metaclass__ = reflection.GeneratedProtocolMessageType
+class ComplexOptionType2(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
+  class ComplexOptionType4(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
     DESCRIPTOR = _COMPLEXOPTIONTYPE2_COMPLEXOPTIONTYPE4
     
     # @@protoc_insertion_point(class_scope:protobuf_unittest.ComplexOptionType2.ComplexOptionType4)
@@ -1126,11 +1112,8 @@ class ComplexOptionType2(message.Message):
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.ComplexOptionType2)
 
-class ComplexOptionType3(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
-  
-  class ComplexOptionType5(message.Message):
-    __metaclass__ = reflection.GeneratedProtocolMessageType
+class ComplexOptionType3(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
+  class ComplexOptionType5(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
     DESCRIPTOR = _COMPLEXOPTIONTYPE3_COMPLEXOPTIONTYPE5
     
     # @@protoc_insertion_point(class_scope:protobuf_unittest.ComplexOptionType3.ComplexOptionType5)
@@ -1138,38 +1121,32 @@ class ComplexOptionType3(message.Message):
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.ComplexOptionType3)
 
-class ComplexOpt6(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class ComplexOpt6(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _COMPLEXOPT6
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.ComplexOpt6)
 
-class VariousComplexOptions(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class VariousComplexOptions(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _VARIOUSCOMPLEXOPTIONS
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.VariousComplexOptions)
 
-class AggregateMessageSet(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class AggregateMessageSet(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _AGGREGATEMESSAGESET
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.AggregateMessageSet)
 
-class AggregateMessageSetElement(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class AggregateMessageSetElement(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _AGGREGATEMESSAGESETELEMENT
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.AggregateMessageSetElement)
 
-class Aggregate(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class Aggregate(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _AGGREGATE
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.Aggregate)
 
-class AggregateMessage(message.Message):
-  __metaclass__ = reflection.GeneratedProtocolMessageType
+class AggregateMessage(message.Message, metaclass=reflection.GeneratedProtocolMessageType):
   DESCRIPTOR = _AGGREGATEMESSAGE
   
   # @@protoc_insertion_point(class_scope:protobuf_unittest.AggregateMessage)
@@ -1257,11 +1234,9 @@ _TESTSERVICEWITHCUSTOMOPTIONS = descriptor.ServiceDescriptor(
   ),
 ])
 
-class TestServiceWithCustomOptions(service.Service):
-  __metaclass__ = service_reflection.GeneratedServiceType
+class TestServiceWithCustomOptions(service.Service, metaclass=service_reflection.GeneratedServiceType):
   DESCRIPTOR = _TESTSERVICEWITHCUSTOMOPTIONS
-class TestServiceWithCustomOptions_Stub(TestServiceWithCustomOptions):
-  __metaclass__ = service_reflection.GeneratedServiceStubType
+class TestServiceWithCustomOptions_Stub(TestServiceWithCustomOptions, metaclass=service_reflection.GeneratedServiceStubType):
   DESCRIPTOR = _TESTSERVICEWITHCUSTOMOPTIONS
 
 
@@ -1285,11 +1260,9 @@ _AGGREGATESERVICE = descriptor.ServiceDescriptor(
   ),
 ])
 
-class AggregateService(service.Service):
-  __metaclass__ = service_reflection.GeneratedServiceType
+class AggregateService(service.Service, metaclass=service_reflection.GeneratedServiceType):
   DESCRIPTOR = _AGGREGATESERVICE
-class AggregateService_Stub(AggregateService):
-  __metaclass__ = service_reflection.GeneratedServiceStubType
+class AggregateService_Stub(AggregateService, metaclass=service_reflection.GeneratedServiceStubType):
   DESCRIPTOR = _AGGREGATESERVICE
 
 # @@protoc_insertion_point(module_scope)

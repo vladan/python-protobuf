@@ -36,7 +36,7 @@
 
 __author__ = 'kenton@google.com (Kenton Varda)'
 
-import cStringIO
+import io
 import re
 
 from google.protobuf.internal import type_checkers
@@ -89,7 +89,7 @@ def MessageToString(message, as_utf8=False, as_one_line=False,
   Returns:
     A string of the text formatted protocol buffer message.
   """
-  out = cStringIO.StringIO()
+  out = io.StringIO()
   PrintMessage(message, out, as_utf8=as_utf8, as_one_line=as_one_line,
                pointy_brackets=pointy_brackets,
                use_index_order=use_index_order,
@@ -189,7 +189,7 @@ def PrintFieldValue(field, value, out, indent=0, as_utf8=False,
       out.write(str(value))
   elif field.cpp_type == descriptor.FieldDescriptor.CPPTYPE_STRING:
     out.write('\"')
-    if isinstance(value, unicode):
+    if isinstance(value, str):
       out_value = value.encode('utf-8')
     else:
       out_value = value
@@ -499,7 +499,7 @@ class _Tokenizer(object):
   def _PopLine(self):
     while len(self._current_line) <= self._column:
       try:
-        self._current_line = self._lines.next()
+        self._current_line = next(self._lines)
       except StopIteration:
         self._current_line = ''
         self._more_lines = False
@@ -569,7 +569,7 @@ class _Tokenizer(object):
     """
     try:
       result = ParseInteger(self.token, is_signed=True, is_long=False)
-    except ValueError, e:
+    except ValueError as e:
       raise self._ParseError(str(e))
     self.NextToken()
     return result
@@ -585,7 +585,7 @@ class _Tokenizer(object):
     """
     try:
       result = ParseInteger(self.token, is_signed=False, is_long=False)
-    except ValueError, e:
+    except ValueError as e:
       raise self._ParseError(str(e))
     self.NextToken()
     return result
@@ -601,7 +601,7 @@ class _Tokenizer(object):
     """
     try:
       result = ParseInteger(self.token, is_signed=True, is_long=True)
-    except ValueError, e:
+    except ValueError as e:
       raise self._ParseError(str(e))
     self.NextToken()
     return result
@@ -617,7 +617,7 @@ class _Tokenizer(object):
     """
     try:
       result = ParseInteger(self.token, is_signed=False, is_long=True)
-    except ValueError, e:
+    except ValueError as e:
       raise self._ParseError(str(e))
     self.NextToken()
     return result
@@ -633,7 +633,7 @@ class _Tokenizer(object):
     """
     try:
       result = ParseFloat(self.token)
-    except ValueError, e:
+    except ValueError as e:
       raise self._ParseError(str(e))
     self.NextToken()
     return result
@@ -649,7 +649,7 @@ class _Tokenizer(object):
     """
     try:
       result = ParseBool(self.token)
-    except ValueError, e:
+    except ValueError as e:
       raise self._ParseError(str(e))
     self.NextToken()
     return result
@@ -665,8 +665,8 @@ class _Tokenizer(object):
     """
     the_bytes = self.ConsumeByteString()
     try:
-      return unicode(the_bytes, 'utf-8')
-    except UnicodeDecodeError, e:
+      return str(the_bytes, 'utf-8')
+    except UnicodeDecodeError as e:
       raise self._StringParseError(e)
 
   def ConsumeByteString(self):
@@ -700,7 +700,7 @@ class _Tokenizer(object):
 
     try:
       result = text_encoding.CUnescape(text[1:-1])
-    except ValueError, e:
+    except ValueError as e:
       raise self._ParseError(str(e))
     self.NextToken()
     return result
@@ -708,7 +708,7 @@ class _Tokenizer(object):
   def ConsumeEnum(self, field):
     try:
       result = ParseEnum(field, self.token)
-    except ValueError, e:
+    except ValueError as e:
       raise self._ParseError(str(e))
     self.NextToken()
     return result
@@ -773,7 +773,7 @@ def ParseInteger(text, is_signed=False, is_long=False):
     # alternate implementations where the distinction is more significant
     # (e.g. the C++ implementation) simpler.
     if is_long:
-      result = long(text, 0)
+      result = int(text, 0)
     else:
       result = int(text, 0)
   except ValueError:
