@@ -50,7 +50,7 @@ def generate_proto(source):
   if (not os.path.exists(output) or
       (os.path.exists(source) and
        os.path.getmtime(source) > os.path.getmtime(output))):
-    print ("Generating %s..." % output)
+    print(("Generating %s..." % output))
 
     if not os.path.exists(source):
       sys.stderr.write("Can't find required file: %s\n" % source)
@@ -67,12 +67,6 @@ def generate_proto(source):
       sys.exit(-1)
 
 def GenerateUnittestProtos():
-  generate_proto("../src/google/protobuf/unittest.proto")
-  generate_proto("../src/google/protobuf/unittest_custom_options.proto")
-  generate_proto("../src/google/protobuf/unittest_import.proto")
-  generate_proto("../src/google/protobuf/unittest_import_public.proto")
-  generate_proto("../src/google/protobuf/unittest_mset.proto")
-  generate_proto("../src/google/protobuf/unittest_no_generic_services.proto")
   generate_proto("google/protobuf/internal/descriptor_pool_test1.proto")
   generate_proto("google/protobuf/internal/descriptor_pool_test2.proto")
   generate_proto("google/protobuf/internal/test_bad_identifiers.proto")
